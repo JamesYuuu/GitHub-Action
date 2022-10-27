@@ -4,6 +4,7 @@ from pytrends.request import TrendReq
 import googletrans
 from googletrans import Translator
 import os
+from time import sleep
 
 os.mkdir("homework")
 
@@ -28,6 +29,7 @@ pytrend = TrendReq()
 lst = list(df_dic['term'])
 py_res = pd.DataFrame()
 for i in range(len(lst)):
+    sleep(1)
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
     py_current = pytrend.interest_over_time()
     py_res = pd.concat([py_res,py_current])
@@ -56,6 +58,7 @@ lst = list(df_dic['Chinese'])
 pytrend = TrendReq()
 py_res = pd.DataFrame()
 for i in range(len(lst)):
+    sleep(1)
     pytrend.build_payload(kw_list=[lst[i],], timeframe = '2018-1-1 2022-10-18', geo = 'US') 
     py_current = pytrend.interest_over_time()
     py_res = pd.concat([py_res,py_current])
