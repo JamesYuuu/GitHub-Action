@@ -30,7 +30,7 @@ lst = list(df_dic['term'])
 dt = pd.date_range(start="20180107", end="20200930", freq="7D")
 py_res = pd.DataFrame(index=dt)
 for i in range(len(lst)):
-    sleep(1)
+    sleep(3)
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
     py_current = pytrend.interest_over_time()
     if not py_current.empty:
@@ -61,7 +61,7 @@ pytrend = TrendReq()
 dt = pd.date_range(start="20180107", end="20200930", freq="7D")
 py_res = pd.DataFrame(index=dt)
 for i in range(len(lst)):
-    sleep(1)
+    sleep(3)
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
     py_current = pytrend.interest_over_time()
     if not py_current.empty:
