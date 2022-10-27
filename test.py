@@ -3,6 +3,9 @@ import pytrends
 from pytrends.request import TrendReq
 import googletrans
 from googletrans import Translator
+import os
+
+os.mkdir("homework")
 
 df_dic = pd.read_excel('HIV-4.xlsx')
 
@@ -28,7 +31,7 @@ for i in range(len(lst)):
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
     py_current = pytrend.interest_over_time()
     py_res = pd.concat([py_res,py_current])
-py_res.to_excel('q1.xlsx')
+py_res.to_excel('homework/q1.xlsx')
 
 df_dic = pd.read_excel('HIV-4.xlsx')
 
@@ -56,4 +59,4 @@ for i in range(len(lst)):
     pytrend.build_payload(kw_list=[lst[i],], timeframe = '2018-1-1 2022-10-18', geo = 'US') 
     py_current = pytrend.interest_over_time()
     py_res = pd.concat([py_res,py_current])
-py_res.to_excel('q2.xlsx')
+py_res.to_excel('homework/q2.xlsx')
