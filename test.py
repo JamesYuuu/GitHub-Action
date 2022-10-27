@@ -27,12 +27,14 @@ df_dic['term'] = df_dic['term'].str.cat(df_dic['Entry'])
 
 pytrend = TrendReq()
 lst = list(df_dic['term'])
-py_res = pd.DataFrame()
+dt = pd.date_range(start="20180107", end="20200930", freq="7D")
+py_res = pd.DataFrame(index=dt)
 for i in range(len(lst)):
-    sleep(1)
+    time.sleep(1)
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
     py_current = pytrend.interest_over_time()
-    py_res = pd.concat([py_res,py_current])
+    if not py_current.empty:
+        py_res[lst[i]] = py_current[lst[i]]
 py_res.to_excel('homework/q1.xlsx')
 
 df_dic = pd.read_excel('HIV-4.xlsx')
@@ -56,10 +58,12 @@ df_dic['Chinese'] = df_dic['Entry'].apply(translator.translate, src='en', dest='
 
 lst = list(df_dic['Chinese'])
 pytrend = TrendReq()
-py_res = pd.DataFrame()
+dt = pd.date_range(start="20180107", end="20200930", freq="7D")
+py_res = pd.DataFrame(index=dt)
 for i in range(len(lst)):
-    sleep(1)
-    pytrend.build_payload(kw_list=[lst[i],], timeframe = '2018-1-1 2022-10-18', geo = 'US') 
+    time.sleep(3)
+    pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
     py_current = pytrend.interest_over_time()
-    py_res = pd.concat([py_res,py_current])
+    if not py_current.empty:
+        py_res[lst[i]] = py_current[lst[i]]
 py_res.to_excel('homework/q2.xlsx')
