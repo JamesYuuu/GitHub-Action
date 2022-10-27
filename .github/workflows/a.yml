@@ -1,0 +1,24 @@
+name: Google Trends
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Run python
+      run: |
+        python a.py
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: homework
+        path: homework/
