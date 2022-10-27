@@ -5,7 +5,8 @@ name: Google Trends
 
 on:
   schedule:
-    - cron: "0/5 * * * *"
+    - cron: "10 * * * *"
+  push:
 
 jobs:
   build:
