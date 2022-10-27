@@ -30,9 +30,13 @@ lst = list(df_dic['term'])
 dt = pd.date_range(start="20180107", end="20200930", freq="7D")
 py_res = pd.DataFrame(index=dt)
 for i in range(len(lst)):
-    sleep(1)
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
-    py_current = pytrend.interest_over_time()
+    while True:
+        try:
+            py_current = pytrend.interest_over_time()
+            break
+        except Exception as e:
+            pass
     if not py_current.empty:
         py_res[lst[i]] = py_current[lst[i]]
 py_res.to_excel('homework/q1.xlsx')
@@ -61,9 +65,13 @@ pytrend = TrendReq()
 dt = pd.date_range(start="20180107", end="20200930", freq="7D")
 py_res = pd.DataFrame(index=dt)
 for i in range(len(lst)):
-    sleep(1)
     pytrend.build_payload(kw_list=[lst[i],], timeframe='2018-01-01 2022-09-30', geo = 'US', gprop='') 
-    py_current = pytrend.interest_over_time()
+    while True:
+        try:
+            py_current = pytrend.interest_over_time()
+            break
+        except Exception as e:
+            pass
     if not py_current.empty:
         py_res[lst[i]] = py_current[lst[i]]
 py_res.to_excel('homework/q2.xlsx')
