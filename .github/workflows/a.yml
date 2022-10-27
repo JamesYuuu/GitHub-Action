@@ -1,4 +1,4 @@
-name: Google Trends
+name: test
 
 on:
   push:
