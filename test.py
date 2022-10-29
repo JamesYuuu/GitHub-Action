@@ -21,7 +21,7 @@ df_words = df_dic['Entry'].str.split('#',expand=True)
 df_dic['Entry'] = df_words.iloc[:,0]                    
 df_dic = df_dic.drop_duplicates(subset=["Entry"])      #Delete the words with more than one meaning
 
-df_dic['term'] = 'US Chinese '
+df_dic['term'] = 'China '
 df_dic['term'] = df_dic['term'].str.cat(df_dic['Entry'])
 #df_dic
 
