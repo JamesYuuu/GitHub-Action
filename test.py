@@ -75,3 +75,6 @@ py_res.to_excel('homework/q1.xlsx')
 #     if not py_current.empty:
 #         py_res[lst[i]] = py_current[lst[i]]
 # py_res.to_excel('homework/q2.xlsx')
+
+
+
