@@ -25,7 +25,7 @@ os.mkdir("homework")
 # df_dic['term'] = df_dic['term'].str.cat(df_dic['Entry'])
 #df_dic
 
-# pytrend = TrendReq()
+#pytrend = TrendReq()
 # lst = list(df_dic['term'])
 # dt = pd.date_range(start="20180107", end="20220930", freq="7D")
 # py_res = pd.DataFrame(index=dt)
